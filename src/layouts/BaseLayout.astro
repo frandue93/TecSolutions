@@ -118,35 +118,31 @@ const {
     <script>
         let lastScroll = 0;
         const header = document.getElementById('header');
-        
-        // Ocultar el header inicialmente en la página de inicio
-        if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-            header.style.opacity = '0';
-            
-            // Mostrar con fade in después de 2 segundos
-            setTimeout(() => {
+        if (header) {
+            // Mantener el header visible desde el inicio
+            if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
                 header.style.opacity = '1';
-            }, 2000);
+            }
+            
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll <= 0) {
+                    header.style.opacity = '1';
+                    return;
+                }
+                
+                if (currentScroll > lastScroll && currentScroll > 100) {
+                    // Scroll hacia abajo - ocultar
+                    header.style.opacity = '0';
+                } else if (currentScroll < lastScroll) {
+                    // Scroll hacia arriba - mostrar
+                    header.style.opacity = '1';
+                }
+                
+                lastScroll = currentScroll;
+            });
         }
-        
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll <= 0) {
-                header.style.opacity = '1';
-                return;
-            }
-            
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                // Scroll hacia abajo - ocultar
-                header.style.opacity = '0';
-            } else if (currentScroll < lastScroll) {
-                // Scroll hacia arriba - mostrar
-                header.style.opacity = '1';
-            }
-            
-            lastScroll = currentScroll;
-        });
     </script>
 </body>
 </html>
