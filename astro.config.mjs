@@ -9,6 +9,8 @@ import node from '@astrojs/node';
 
 import sitemap from '@astrojs/sitemap';
 
+import cloudflare from '@astrojs/cloudflare';
+
 const site = process.env.SITE_URL;
 
 // https://astro.build/config
@@ -17,9 +19,7 @@ export default defineConfig({
   ...(site ? { site } : {}),
 
   output: 'server',
-  adapter: node({
-    mode: 'standalone',
-  }),
+  adapter: cloudflare(),
   vite: {
     plugins: [tailwindcss()]
   },

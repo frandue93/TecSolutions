@@ -37,3 +37,7 @@ coverage/
 
 # jetbrains setting folder
 .idea/
+
+.dev.vars*
+!.dev.vars.example
+!.env.example
