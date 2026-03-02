@@ -67,12 +67,12 @@ const technologies: Tech[] = [
 ];
 ---
 
-<div class="relative w-full max-w-5xl mx-auto py-16" id="tech-circle-v3">
-    <h2 class="text-3xl font-extrabold text-center text-gray-100 mb-16">
+<div class="relative w-full max-w-5xl mx-auto py-10 md:py-16" id="tech-circle-v3">
+    <h2 class="text-2xl md:text-3xl font-extrabold text-center text-gray-100 mb-10 md:mb-16">
         Stack Tecnológico Profesional
     </h2>
     
-    <div class="relative w-full aspect-square max-w-3xl mx-auto">
+    <div class="relative w-full aspect-square max-w-3xl mx-auto tech-stage">
         <!-- Círculo central con pulso -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 central-circle transition-all duration-700">
             <div class="relative w-48 h-48 transition-all duration-700 central-size">
@@ -204,6 +204,18 @@ const technologies: Tech[] = [
     .central-circle.expanded .central-size {
         width: 28rem !important;
         height: 28rem !important;
+    }
+
+    @media (max-width: 767px) {
+        #tech-circle-v3 .tech-stage {
+            transform: scale(0.82);
+            transform-origin: center center;
+        }
+
+        .central-circle.expanded .central-size {
+            width: 20rem !important;
+            height: 20rem !important;
+        }
     }
     
     .central-circle.expanded .central-content {
