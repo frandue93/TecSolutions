@@ -22,10 +22,11 @@ const ogImageUrl = new URL(image, siteUrl).href;
 const logoPath = '/images/iconoAlfaroMenuAncho.png';
 const faviconPath = '/images/iconoAlfaroMenu.png';
 const logoUrl = new URL(logoPath, siteUrl).href;
+const brandName = 'Alfarotec';
 const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Tu Consultoria Tecnológica',
+    name: brandName,
     url: siteUrl.href,
     logo: logoUrl,
 };
@@ -45,11 +46,13 @@ const organizationSchema = {
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="application-name" content={brandName} />
     
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={url} />
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:site_name" content={brandName} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
 
@@ -96,7 +99,7 @@ const organizationSchema = {
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
                 <!-- Columna 1: Info -->
                 <div>
-                    <h3 class="text-white font-bold mb-3">Tu Consultoria Tecnológica</h3>
+                    <h3 class="text-white font-bold mb-3">Alfarotec</h3>
                     <p class="text-sm">Soluciones tecnológicas innovadoras para empresas B2B.</p>
                 </div>
                 
