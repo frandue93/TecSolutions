@@ -14,7 +14,7 @@ export const services: Service[] = [
     slug: 'desarrollo-software',
     image: '/images/desarrollo_a_medida.png',
     short: 'Creación de aplicaciones y plataformas a medida para optimizar procesos y escalar tu negocio.',
-    full: 'Diseñamos y desarrollamos aplicaciones y plataformas de software únicas y escalables, creadas específicamente para resolver los retos operacionales de tu empresa B2B. Olvídate de las soluciones genéricas y optimiza tus flujos de trabajo con herramientas que impulsan la eficiencia, la productividad y garantizan la compatibilidad, preparándote para la transformación digital y el crecimiento sostenido.',
+    full: 'Diseñamos y desarrollamos aplicaciones y plataformas de software únicas y escalables, creadas específicamente para resolver los retos operacionales de tu empresa. Olvídate de las soluciones genéricas y optimiza tus flujos de trabajo con herramientas que impulsan la eficiencia, la productividad y garantizan la compatibilidad, preparándote para la transformación digital y el crecimiento sostenido.',
     bgSize: '60% auto, cover',
     bgPosition: 'center 0px, center center'
   },
@@ -32,7 +32,7 @@ export const services: Service[] = [
     slug: 'sistemas-gestion',
     image: '/images/erp.png',
     short: 'Implementación e integración de ERP/SGA para centralizar operaciones y mejorar la visibilidad de negocio.',
-    full: 'Implementamos Sistemas de Gestión Empresarial (ERP) y Almacenes (SGA) robustos y totalmente integrados, unificando la logística, inventario, finanzas y recursos humanos en una sola plataforma. Obtén visibilidad total de tu cadena de suministro y toma decisiones basadas en datos en tiempo real, maximizando la eficiencia operativa y el control total de tu negocio B2B.',
+    full: 'Implementamos Sistemas de Gestión Empresarial (ERP) y Almacenes (SGA) robustos y totalmente integrados, unificando la logística, inventario, finanzas y recursos humanos en una sola plataforma. Obtén visibilidad total de tu cadena de suministro y toma decisiones basadas en datos en tiempo real, maximizando la eficiencia operativa y el control total de tu negocio.',
     bgSize: '60% auto, cover',
     bgPosition: 'center 0px, center center'
   },
