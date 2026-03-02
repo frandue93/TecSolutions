@@ -1,0 +1,74 @@
+---
+export interface Props {
+    title: string;
+    description: string;
+    image: string;
+    imageAlt: string;
+    features: string[];
+    ctaText?: string;
+    ctaLink?: string;
+}
+
+const { 
+    title, 
+    description, 
+    image, 
+    imageAlt, 
+    features,
+    ctaText = "Más Información",
+    ctaLink = "/contacto"
+} = Astro.props;
+---
+
+<div class="relative mb-16">
+    <div class="mx-auto bg-gradient-to-tr from-indigo-900 via-purple-900 to-gray-900 overflow-hidden shadow-2xl rounded-3xl transform hover:scale-[1.02] transition-transform duration-500">
+        <div class="grid md:grid-cols-2 gap-0">
+            
+            <!-- Contenido - A la izquierda en lugar de derecha -->
+            <div class="p-8 md:p-12 flex flex-col justify-center order-2 md:order-1">
+                <div class="inline-block mb-4">
+                    <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-bold">
+                        ⚡ Innovación Industrial
+                    </span>
+                </div>
+                <h3 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent mb-4">
+                    {title}
+                </h3>
+                <p class="text-gray-200 text-lg mb-6 leading-relaxed">
+                    {description}
+                </p>
+                <div class="grid grid-cols-1 gap-3 mb-8">
+                    {features.map(feature => (
+                        <div class="flex items-start text-gray-100 bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-purple-500/20 hover:border-purple-500/50 transition-colors">
+                            <svg class="w-6 h-6 text-purple-400 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            <span class="font-medium">{feature}</span>
+                        </div>
+                    ))}
+                </div>
+                <a 
+                    href={ctaLink}
+                    class="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-purple-500/50"
+                >
+                    {ctaText}
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Imagen - A la derecha en lugar de izquierda -->
+            <div class="relative h-64 md:h-auto overflow-hidden order-1 md:order-2">
+                <img 
+                    src={image}
+                    alt={imageAlt}
+                    class="absolute inset-0 w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-l from-transparent to-purple-900/60"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-purple-900/40 to-transparent"></div>
+            </div>
+            
+        </div>
+    </div>
+</div>

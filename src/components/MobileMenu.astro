@@ -1,0 +1,43 @@
+---
+// 1. Script Frontmatter (Se ejecuta en el servidor)
+// Definimos el estado inicial del menú aquí
+const menuItems = [
+    { href: '/servicios', text: 'Servicios' },
+    { href: '/acerca', text: 'Acerca de' },
+    { href: '/contacto', text: 'Contacto' },
+];
+---
+
+<div class="md:hidden">
+    <button id="menu-toggle" class="p-2 text-gray-800 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+    </button>
+    
+    <div id="mobile-menu-content" class="absolute top-16 right-0 w-64 bg-white shadow-xl z-50 transform -translate-y-full transition-transform duration-300 ease-in-out">
+        <nav class="flex flex-col p-4 space-y-2">
+            {menuItems.map(item => (
+                <a href={item.href} class="text-gray-600 hover:text-blue-700 py-2 border-b border-gray-100">{item.text}</a>
+            ))}
+        </nav>
+    </div>
+</div>
+
+<script>
+    // Este código se ejecuta en el navegador.
+
+    // 1. Seleccionar elementos
+    const toggleButton = document.getElementById('menu-toggle');
+    const menuContent = document.getElementById('mobile-menu-content');
+
+    // 2. Definir la función de manejo
+    const handleToggle = () => {
+        // Toggle de una clase Tailwind para mostrar/ocultar el menú
+        // Si tiene 'translate-y-0', está visible. Si tiene '-translate-y-full', está oculto.
+        menuContent.classList.toggle('-translate-y-full'); 
+    };
+
+    // 3. Añadir el evento
+    toggleButton.addEventListener('click', handleToggle);
+</script>

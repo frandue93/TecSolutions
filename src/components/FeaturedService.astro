@@ -1,0 +1,66 @@
+---
+export interface Props {
+    title: string;
+    description: string;
+    image: string;
+    imageAlt: string;
+    features: string[];
+    ctaText?: string;
+    ctaLink?: string;
+}
+
+const { 
+    title, 
+    description, 
+    image, 
+    imageAlt, 
+    features,
+    ctaText = "Más Información",
+    ctaLink = "/contacto"
+} = Astro.props;
+---
+
+<div class="relative mb-16">
+    <div class="mx-auto bg-gradient-to-br from-gray-800 via-gray-900 to-black overflow-hidden shadow-2xl">
+        <div class="grid md:grid-cols-2 gap-0">
+            <!-- Imagen -->
+            <div class="relative h-64 md:h-auto overflow-hidden">
+                <img 
+                    src={image}
+                    alt={imageAlt}
+                    class="absolute inset-0 w-full h-full object-cover"
+                />
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent to-gray-900/80"></div>
+            </div>
+            
+            <!-- Contenido -->
+            <div class="p-8 md:p-12 flex flex-col justify-center">
+                <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    {title}
+                </h3>
+                <p class="text-gray-300 text-lg mb-6 leading-relaxed">
+                    {description}
+                </p>
+                <ul class="space-y-3 mb-8">
+                    {features.map(feature => (
+                        <li class="flex items-start text-gray-200">
+                            <svg class="w-6 h-6 text-blue-400 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span>{feature}</span>
+                        </li>
+                    ))}
+                </ul>
+                <a 
+                    href={ctaLink}
+                    class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/50"
+                >
+                    {ctaText}
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

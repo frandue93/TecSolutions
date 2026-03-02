@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import FeaturedService from '../components/FeaturedService.astro';
+import FeaturedServiceAlt from '../components/FeaturedServiceAlt.astro';
+import TechCircle from '../components/TechCircle.astro';
+import { services } from '../data/services';
+
+import { Image } from 'astro:assets';
+import heroImage from '../assets/portada.jpg'
+
+---
+
+<BaseLayout title="Consultoría Tecnológica | Soluciones B2B" description="Ofrecemos servicios de consultoría tecnológica especializados para empresas B2B, incluyendo desarrollo de software, transformación digital y ciberseguridad.">
+
+    <section class="relative h-[60vh] md:h-[70vh] flex items-center justify-center text-center overflow-hidden">
+        
+        <video 
+            id="heroVideo"  autoplay 
+
+            muted 
+
+            poster="/images/portada.jpg"  
+            class="absolute inset-0 w-full h-full object-cover z-0"
+        >
+            <source src="/videos/faro.mp4" type="video/mp4">
+            Tu navegador no soporta el tag de video.
+        </video>
+        
+        <div class="absolute inset-0 bg-gray-900 opacity-60 z-10"></div>
+        
+        <div class="absolute inset-0 z-15" style="
+            background: linear-gradient(
+                to right, 
+                rgb(17, 24, 39) 0%, 
+                transparent 15%, 
+                transparent 85%, 
+                rgb(17, 24, 39) 100%
+            ),
+            linear-gradient(
+                to bottom, 
+                rgb(17, 24, 39) 0%, 
+                transparent 20%, 
+                transparent 80%, 
+                rgb(17, 24, 39) 100%
+            );
+        "></div>
+        
+        
+        <div class="relative z-20 text-white p-6 max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-shadow-lg" style="text-shadow: 0 0 10px rgba(59, 130, 246, 0.8), 0 0 10px rgba(59, 130, 246, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.9);">
+                Dejate guiar por nuestras soluciones tecnológicas
+            </h1>
+            <p class="text-lg md:text-xl mb-8" style="text-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 1px 1px 3px rgba(0, 0, 0, 0.8);">
+                Soluciones a medida en desarrollo, cloud y optimización para la transformación digital de tu empresa.
+            </p>
+            <div class="relative inline-block mt-50">
+                <div class="absolute -inset-1 rounded-full opacity-75 blur-sm animate-pulse border-pulse-gradient"></div>
+                <div class="absolute -inset-1 rounded-full border-conic-rotate"></div>
+                
+                <a href="/contacto" class="relative inline-block px-8 py-4 text-xl font-semibold 
+bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 hover:from-blue-700 hover:via-blue-600 hover:to-indigo-700 rounded-full shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 transform hover:-translate-y-1 hover:scale-105 text-white backdrop-blur-sm overflow-hidden group border-2 border-transparent">
+                    <span class="relative z-10 flex items-center justify-center space-x-2">
+                        <span>Agenda tu Consulta Gratuita</span>
+                        <svg class="w-5 h-5 
+transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+                </a>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="services-section" class="relative mt-20 py-12 px-6 bg-gray-900 rounded-xl shadow-inner-xl overflow-hidden">
+        
+        <div id="cursor-glow" class="absolute pointer-events-none rounded-full" style="
+            width: 300px;
+            height: 300px;
+            filter: blur(80px); 
+            opacity: 0; 
+            transition: opacity 0.5s ease;
+            background: radial-gradient(circle at center, rgba(37, 99, 235, 0.4) 0%, transparent 70%); 
+            z-index: 10; 
+        "></div>
+
+        <h2 class="text-3xl font-extrabold text-center text-gray-100 mb-12 relative z-20">
+            Nuestros Servicios Clave
+        </h2>
+
+        <!-- Servicio Destacado Alternativo -->
+        <FeaturedServiceAlt 
+            title="IA en Procesos Logísticos e Industriales"
+            description="Transforma tus operaciones industriales con inteligencia artificial de última generación. Automatización inteligente, optimización de cadenas de suministro y analítica predictiva para la industria 4.0."
+            image="/images/IA.png"
+            imageAlt="IA en Logística Industrial"
+            features={[
+                "Optimización de rutas y gestión de flotas con IA",
+                "Mantenimiento predictivo con Machine Learning",
+                "Automatización de almacenes y centros de distribución"
+            ]}
+        />
+
+        <!-- Servicio Destacado -->
+        <FeaturedService 
+            title="IA y Tecnología en la Agricultura"
+            description="Revoluciona tu producción agrícola con inteligencia artificial y soluciones tecnológicas avanzadas. Optimización de cultivos, predicción de cosechas y automatización inteligente."
+            image="/images/tecnologicaAgricola.png"
+            imageAlt="IA en Agricultura"
+            features={[
+                "Análisis predictivo con Machine Learning",
+                "Monitoreo IoT en tiempo real",
+                "Optimización de recursos y sostenibilidad"
+            ]}
+        />
+
+
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-20">
+            {services.map(s => (
+                <ServiceCard {...s} />
+            ))}
+        </div>
+           
+        
+    </section>
+
+        <!-- Sección de Tecnologías -->
+    <section class="relative mt-5 py-16 px-6 bg-gray-900">
+        <TechCircle />
+    </section>
+
+    <script>
+
+        
+        // LÓGICA DEL CURSOR GLOW
+        const section = document.getElementById('services-section');
+        const glow = document.getElementById('cursor-glow');
+
+        if (section && glow) {
+            function updateGlow(e: MouseEvent) {
+                const rect = section!.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                glow!.style.transform = `translate(${x - 150}px, ${y - 150}px)`;
+            }
+
+            section.addEventListener('mouseenter', () => {
+                glow.style.opacity = '1';
+                section.addEventListener('mousemove', updateGlow);
+            });
+
+            section.addEventListener('mouseleave', () => {
+                glow.style.opacity = '0';
+                section.removeEventListener('mousemove', updateGlow);
+            });
+        }
+    </script>
+
+</BaseLayout>

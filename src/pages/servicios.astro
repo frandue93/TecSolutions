@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+
+const services = [
+    { title: "Desarrollo de Software a Medida", description: "Soluciones robustas en PHP, JavaScript y arquitecturas desacopladas.", icon: "code" },
+    { title: "Consultoría de Arquitectura Cloud", description: "Diseño y optimización de infraestructura en AWS y Azure para escalabilidad.", icon: "cloud" },
+    { title: "Estrategias de Contenido y SEO Técnico", description: "Maximiza tu visibilidad orgánica con un enfoque en la velocidad y la experiencia de usuario.", icon: "search" },
+];
+---
+<BaseLayout title="Servicios de Consultoría Tecnológica" description="Descubre nuestros servicios especializados de consultoría tecnológica para transformar tu negocio.">
+    <h1 class="text-4xl font-bold text-blue-800 mb-8">Nuestros Servicios Clave</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((service) => (
+            <ServiceCard title={service.title} description={service.description} icon={service.icon} />
+        ))}
+    </div>
+
+    <section class="mt-12 p-6 border border-gray-700 bg-blue-900 text-blue-400 rounded-lg">
+        <h2 class="text-2xl font-semibold mb-4">¿Listo para empezar tu transformación?</h2>
+        <p>Hablemos sobre tus desafíos únicos y cómo nuestra experiencia puede ayudarte.</p>
+        <a href="/contacto" class="mt-4 inline-block px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Contactar Ahora</a>
+    </section>
+</BaseLayout>

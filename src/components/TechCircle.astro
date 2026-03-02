@@ -1,0 +1,291 @@
+---
+interface Tech {
+    name: string;
+    icon: string;
+    color: string;
+    description: string;
+    gradient: string;
+}
+
+const technologies: Tech[] = [
+    {
+        name: "Astro",
+        icon: "/images/astro.svg",
+        color: "#BC52EE",
+        gradient: "from-orange-500 to-purple-600",
+        description: "Framework web ultrarrápido para sitios de contenido y aplicaciones modernas"
+    },
+    {
+        name: "PHP + Laravel",
+        icon: "/images/laravel.svg",
+        color: "#FF2D20",
+        gradient: "from-red-600 to-orange-500",
+        description: "Framework PHP robusto para aplicaciones web empresariales escalables"
+    },
+    {
+        name: "IA",
+        icon: "🤖",
+        color: "#00D9FF",
+        gradient: "from-cyan-400 to-blue-600",
+        description: "Inteligencia Artificial y Machine Learning para soluciones innovadoras"
+    },
+    {
+        name: "Python",
+        icon: "/images/python.svg",
+        color: "#3776AB",
+        gradient: "from-blue-500 to-yellow-400",
+        description: "Lenguaje versátil para desarrollo backend, análisis de datos y IA"
+    },
+    {
+        name: "WordPress",
+        icon: "/images/wordpress.svg",
+        color: "#21759B",
+        gradient: "from-blue-600 to-gray-700",
+        description: "CMS líder mundial para sitios web corporativos y blogs profesionales"
+    },
+    {
+        name: "Git",
+        icon: "/images/git.svg",
+        color: "#F05032",
+        gradient: "from-orange-600 to-red-500",
+        description: "Control de versiones distribuido para gestión eficiente de código"
+    },
+    {
+        name: "Vue.js",
+        icon: "/images/vuedotjs.svg",
+        color: "#41B883",
+        gradient: "from-green-400 to-teal-500",
+        description: "Framework JavaScript progresivo para interfaces de usuario reactivas"
+    },
+    {
+        name: "SEO",
+        icon: "📊",
+        color: "#4285F4",
+        gradient: "from-blue-500 to-green-500",
+        description: "Optimización para motores de búsqueda y posicionamiento web"
+    }
+];
+---
+
+<div class="relative w-full max-w-5xl mx-auto py-16" id="tech-circle-v3">
+    <h2 class="text-3xl font-extrabold text-center text-gray-100 mb-16">
+        Stack Tecnológico Profesional
+    </h2>
+    
+    <div class="relative w-full aspect-square max-w-3xl mx-auto">
+        <!-- Círculo central con pulso -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 central-circle transition-all duration-700">
+            <div class="relative w-48 h-48 transition-all duration-700 central-size">
+                {/* Anillos de pulso */}
+                <div class="absolute inset-0 rounded-full bg-gradient-to-br from-purple-600 via-blue-600 to-cyan-600 animate-pulse central-bg transition-all duration-700"></div>
+                <div class="absolute inset-2 rounded-full bg-gray-900 flex items-center justify-center border-4 border-gray-800 overflow-visible central-inner transition-all duration-700">
+                    <div class="text-center central-content transition-all duration-500 absolute inset-0 flex flex-col items-center justify-center">
+                        <span class="text-6xl block mb-2">⚡</span>
+                        <span class="text-white font-bold text-lg">Tech</span>
+                        <span class="text-gray-400 text-sm block">Stack</span>
+                    </div>
+                    
+                    {/* Contenido de información expandida - oculto por defecto */}
+                    {technologies.map((tech, index) => (
+                        <div class={`tech-expanded-info tech-info-${index} absolute inset-0 opacity-0 invisible transition-all duration-700 flex flex-col items-center justify-center text-center p-8`}>
+                            <div class="w-24 h-24 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center mb-4 shadow-2xl border"
+                                 style={`border-color: ${tech.color}66;`}>
+                                {tech.icon.startsWith('/') ? <img src={tech.icon} alt={tech.name} class="w-16 h-16" /> : <span class="text-5xl">{tech.icon}</span>}
+                            </div>
+                            <h3 class={`text-2xl font-bold mb-3 bg-gradient-to-r ${tech.gradient} bg-clip-text text-transparent`}>
+                                {tech.name}
+                            </h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                {tech.description}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- Tecnologías en órbita -->
+        {technologies.map((tech, index) => {
+            const angle = (index * 360) / technologies.length;
+            const radius = 42;
+            const x = 50 + radius * Math.cos((angle - 90) * Math.PI / 180);
+            const y = 50 + radius * Math.sin((angle - 90) * Math.PI / 180);
+            
+            return (
+                <div 
+                    class="tech-orb absolute cursor-pointer z-10 group"
+                    style={`left: ${x}%; top: ${y}%; transform: translate(-50%, -50%);`}
+                    data-index={index}
+                >
+                    {/* Órbita brillante al hover */}
+                    <div class={`absolute inset-0 w-32 h-32 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2 rounded-full bg-gradient-to-br ${tech.gradient} opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-50`}></div>
+                    
+                    {/* Círculo de tecnología */}
+                    <div class="relative w-28 h-28 md:w-32 md:h-32">
+                        {/* Anillo exterior animado */}
+                        <div class={`absolute inset-0 rounded-full border-4 border-gray-700 group-hover:border-gradient transition-all duration-500`}
+                             style={`border-color: ${tech.color};`}>
+                        </div>
+                        
+                        {/* Contenedor del icono */}
+                        <div class="absolute inset-1 rounded-full bg-white/5 backdrop-blur border border-white/10 flex items-center justify-center transition-all duration-500 group-hover:scale-110 shadow-2xl">
+                            {tech.icon.startsWith('/') ? <img src={tech.icon} alt={tech.name} class="w-16 h-16 relative z-10 transition-transform duration-500 group-hover:scale-125" /> : <span class="text-5xl relative z-10 transition-transform duration-500 group-hover:scale-125">{tech.icon}</span>}
+                            <div class={`absolute inset-0 rounded-full bg-gradient-to-br ${tech.gradient} opacity-0 group-hover:opacity-35 transition-opacity duration-500`}></div>
+                        </div>
+                        
+                        {/* Efecto de brillo pulsante */}
+                        <div class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                             style={`box-shadow: 0 0 40px ${tech.color}, 0 0 60px ${tech.color}40;`}>
+                        </div>
+                    </div>
+                    
+                        </div>
+                    </div>
+                </div>
+            );
+        })}
+        
+        <!-- Partículas decorativas -->
+        <svg class="absolute inset-0 w-full h-full pointer-events-none" style="z-index: 5;">
+            {technologies.map((_, index) => {
+                const angle = (index * 360) / technologies.length;
+                const radius = 42;
+                const x1 = 50 + radius * Math.cos((angle - 90) * Math.PI / 180);
+                const y1 = 50 + radius * Math.sin((angle - 90) * Math.PI / 180);
+                
+                return (
+                    <line
+                        class={`connection-line connection-${index}`}
+                        x1="50%"
+                        y1="50%"
+                        x2={`${x1}%`}
+                        y2={`${y1}%`}
+                        stroke="rgba(59, 130, 246, 0.2)"
+                        stroke-width="1"
+                        stroke-dasharray="3 3"
+                    />
+                );
+            })}
+        </svg>
+    </div>
+</div>
+
+<style>
+    @keyframes spin-slow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    
+    @keyframes float {
+        0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+        50% { transform: translate(-50%, -50%) translateY(-10px); }
+    }
+    
+    .animate-spin-slow {
+        animation: spin-slow 30s linear infinite;
+    }
+    
+    .tech-orb {
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        animation: float 3s ease-in-out infinite;
+    }
+    
+    .tech-orb:nth-child(1) { animation-delay: 0s; }
+    .tech-orb:nth-child(2) { animation-delay: 0.2s; }
+    .tech-orb:nth-child(3) { animation-delay: 0.4s; }
+    .tech-orb:nth-child(4) { animation-delay: 0.6s; }
+    .tech-orb:nth-child(5) { animation-delay: 0.8s; }
+    .tech-orb:nth-child(6) { animation-delay: 1s; }
+    .tech-orb:nth-child(7) { animation-delay: 1.2s; }
+    .tech-orb:nth-child(8) { animation-delay: 1.4s; }
+    
+    /* Expandir el círculo central al hacer hover sobre una tecnología */
+    .central-circle.expanded .central-size {
+        width: 28rem !important;
+        height: 28rem !important;
+    }
+    
+    .central-circle.expanded .central-content {
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+    
+    .central-circle.expanded .central-bg {
+        opacity: 1 !important;
+    }
+    
+    .central-circle.expanded .central-inner {
+        overflow: visible !important;
+    }
+    
+    /* Mostrar la información correspondiente en el círculo central */
+    .tech-expanded-info.active {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    #tech-circle-v3:has(.tech-orb:hover) .tech-orb:not(:hover) {
+        opacity: 0.15;
+        filter: blur(3px) grayscale(1);
+        transform: translate(-50%, -50%) scale(0.75);
+    }
+    
+    #tech-circle-v3:has(.tech-orb:hover) .orbit-line {
+        opacity: 0.05;
+    }
+    
+    #tech-circle-v3:has(.tech-orb:hover) .connection-line {
+        opacity: 0 !important;
+    }
+</style>
+
+<script>
+    const container = document.getElementById('tech-circle-v3');
+    const techOrbs = container?.querySelectorAll('.tech-orb');
+    const centralCircle = container?.querySelector('.central-circle');
+    
+    techOrbs?.forEach((orb, index) => {
+        orb.addEventListener('mouseenter', () => {
+            // Expandir círculo central
+            centralCircle?.classList.add('expanded');
+            
+            // Mostrar información correspondiente
+            const techInfo = container?.querySelector(`.tech-info-${index}`);
+            techInfo?.classList.add('active');
+            
+            // Resaltar la línea correspondiente
+            const line = container?.querySelector(`.orbit-${index} line`);
+            const circle = container?.querySelector(`.orbit-${index} circle`);
+            if (line) {
+                line.setAttribute('stroke', 'rgba(59, 130, 246, 0.6)');
+                line.setAttribute('stroke-width', '2');
+            }
+            if (circle) {
+                circle.setAttribute('r', '4');
+                circle.setAttribute('fill', 'rgba(59, 130, 246, 0.8)');
+            }
+        });
+        
+        orb.addEventListener('mouseleave', () => {
+            // Contraer círculo central
+            centralCircle?.classList.remove('expanded');
+            
+            // Ocultar información
+            const techInfo = container?.querySelector(`.tech-info-${index}`);
+            techInfo?.classList.remove('active');
+            
+            // Restaurar línea
+            const line = container?.querySelector(`.orbit-${index} line`);
+            const circle = container?.querySelector(`.orbit-${index} circle`);
+            if (line) {
+                line.setAttribute('stroke', 'rgba(59, 130, 246, 0.15)');
+                line.setAttribute('stroke-width', '1');
+            }
+            if (circle) {
+                circle.setAttribute('r', '2');
+                circle.setAttribute('fill', 'rgba(59, 130, 246, 0.3)');
+            }
+        });
+    });
+</script>

@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.border-pulse-gradient {
+    /* Mueve las reglas de degradado y animación de pulso */
+    background: linear-gradient(45deg, 
+        #3b82f6, #8b5cf6, #ef4444, #ec4899, #3b82f6
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 3s ease infinite, sparkle 2s ease-in-out infinite;
+}
+
+/* 2. CLASE para los destellos y animación de rotación */
+.border-conic-rotate {
+    /* Mueve las reglas de degradado cónico y rotación */
+    background: conic-gradient(from 0deg, 
+        transparent, #ffffff80, transparent, #3b82f680, 
+        transparent, #8b5cf680, transparent, #06b6d480, transparent
+    );
+    animation: rotate 4s linear infinite;
+}
+
