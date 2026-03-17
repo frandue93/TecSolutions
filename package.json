@@ -5,14 +5,14 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "postbuild": "node -e \"require('fs').writeFileSync('dist/.assetsignore', '_worker.js\\n')\"",
     "preview": "npm run build && wrangler dev",
     "astro": "astro",
     "deploy": "npm run build && wrangler deploy",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.6.12",
-    "@astrojs/node": "^9.5.1",
+    "@astrojs/cloudflare": "^12.6.13",
     "@astrojs/preact": "^4.1.3",
     "@astrojs/rss": "^4.0.13",
     "@astrojs/sitemap": "^3.6.0",

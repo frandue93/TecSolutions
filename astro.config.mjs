@@ -5,11 +5,9 @@ import tailwindcss from '@tailwindcss/vite';
 
 import preact from '@astrojs/preact';
 
-import node from '@astrojs/node';
+import cloudflare from '@astrojs/cloudflare';
 
 import sitemap from '@astrojs/sitemap';
-
-import cloudflare from '@astrojs/cloudflare';
 
 const site = process.env.SITE_URL;
 
