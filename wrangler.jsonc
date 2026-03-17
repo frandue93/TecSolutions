@@ -3,6 +3,7 @@
   "name": "alfarotec",
   "main": "./dist/_worker.js/index.js",
   "compatibility_date": "2026-03-17",
+  "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "directory": "./dist"
   },
