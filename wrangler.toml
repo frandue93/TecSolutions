@@ -1,0 +1,19 @@
+name = "alfarotec"
+main = "dist/_worker.js"
+compatibility_date = "2026-03-17"
+compatibility_flags = ["nodejs_compat"]
+
+[env.production]
+name = "alfarotec-prod"
+
+[[env.production.kv_namespaces]]
+binding = "SESSION"
+id = "your_kv_namespace_id_here"
+
+[build]
+command = "npm run build"
+cwd = "./"
+
+[build.upload]
+format = "service-worker"
+main = "./dist/_worker.js"
