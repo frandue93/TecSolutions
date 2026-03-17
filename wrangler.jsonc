@@ -6,7 +6,7 @@
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "directory": "./dist",
-    "exclude": ["_worker.js"]
+    "exclude": ["_worker.js", "_worker.js/**"]
   },
   "kv_namespaces": [
     {
