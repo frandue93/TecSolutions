@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "alfarotec",
+  "main": "./dist/_worker.js/index.js",
+  "compatibility_date": "2026-03-17",
+  "assets": {
+    "directory": "./dist"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "SESSION"
+    }
+  ]
+}
