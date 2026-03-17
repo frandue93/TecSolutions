@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 import preact from '@astrojs/preact';
 
-import cloudflare from '@astrojs/cloudflare';
+import node from '@astrojs/node';
 
 import sitemap from '@astrojs/sitemap';
 
@@ -17,7 +17,7 @@ export default defineConfig({
   site,
 
   output: 'server',
-  adapter: cloudflare(),
+  adapter: node({ mode: 'standalone' }),
   vite: {
     plugins: [tailwindcss()]
   },
