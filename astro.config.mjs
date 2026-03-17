@@ -5,21 +5,19 @@ import tailwindcss from '@tailwindcss/vite';
 
 import preact from '@astrojs/preact';
 
-import node from '@astrojs/node';
+import cloudflare from '@astrojs/cloudflare';
 
 import sitemap from '@astrojs/sitemap';
 
-const site = process.env.SITE_URL;
+const site = process.env.SITE_URL ?? 'https://alfarotec.com';
 
 // https://astro.build/config
 export default defineConfig({
 
-  ...(site ? { site } : {}),
+  site,
 
   output: 'server',
-  adapter: node({
-    mode: 'standalone',
-  }),
+  adapter: cloudflare(),
   vite: {
     plugins: [tailwindcss()]
   },
