@@ -1,0 +1,115 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+    title: string;
+    description: string;
+    image?: string;
+    url?: string;
+}
+
+const {
+    title,
+    description,
+    image = '/images/default-seo.jpg',
+    url = Astro.url.href,
+} = Astro.props;
+
+const siteUrl = Astro.site ?? new URL(url);
+const ogImageUrl = new URL(image, siteUrl).href;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <link rel="canonical" href={url} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+</head>
+
+<body class="min-h-screen overflow-x-hidden bg-slate-950 text-slate-100 antialiased">
+    <div class="fixed inset-0 -z-10 opacity-90">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(20,184,166,0.22),_transparent_28%),radial-gradient(circle_at_85%_12%,_rgba(249,115,22,0.16),_transparent_22%),linear-gradient(135deg,_#020617_0%,_#0f172a_45%,_#111827_100%)]"></div>
+        <div class="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.08)_1px,_transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.08)_1px,_transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(circle_at_center,black,transparent_92%)]"></div>
+    </div>
+
+    <slot />
+</body>
+</html>
+
+<style is:global>
+    :root {
+        --portfolio-ink: #e2e8f0;
+        --portfolio-muted: #94a3b8;
+        --portfolio-panel: rgba(15, 23, 42, 0.72);
+        --portfolio-panel-strong: rgba(15, 23, 42, 0.92);
+        --portfolio-border: rgba(148, 163, 184, 0.2);
+        --portfolio-accent: #14b8a6;
+        --portfolio-highlight: #f97316;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .portfolio-display {
+        font-family: 'Cormorant Garamond', serif;
+    }
+
+    .portfolio-panel {
+        background: linear-gradient(180deg, rgba(15, 23, 42, 0.82) 0%, rgba(15, 23, 42, 0.68) 100%);
+        border: 1px solid var(--portfolio-border);
+        box-shadow: 0 25px 80px rgba(2, 6, 23, 0.35);
+        backdrop-filter: blur(18px);
+    }
+
+    .portfolio-chip {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(12px);
+    }
+
+    .portfolio-glow {
+        box-shadow: 0 0 0 1px rgba(20, 184, 166, 0.14), 0 0 45px rgba(20, 184, 166, 0.12);
+    }
+
+    .portfolio-divider {
+        background: linear-gradient(90deg, transparent 0%, rgba(20, 184, 166, 0.55) 35%, rgba(249, 115, 22, 0.55) 65%, transparent 100%);
+    }
+    
+    .portfolio-fade-up {
+        animation: portfolioFadeUp 0.8s ease-out both;
+    }
+
+    @keyframes portfolioFadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(24px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>

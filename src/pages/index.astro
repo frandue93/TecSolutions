@@ -6,8 +6,6 @@ import FeaturedServiceAlt from '../components/FeaturedServiceAlt.astro';
 import TechCircle from '../components/TechCircle.astro';
 import { services } from '../data/services';
 
-import { Image } from 'astro:assets';
-import heroImage from '../assets/portada.jpg'
 
 ---
 
@@ -16,11 +14,11 @@ import heroImage from '../assets/portada.jpg'
     <section class="relative min-h-[60vh] md:min-h-[70vh] py-10 md:py-0 flex items-center justify-center text-center overflow-hidden">
         
         <video 
-            id="heroVideo"  autoplay 
-
-            muted 
-
-            poster="/images/portada.jpg"  
+            id="heroVideo" autoplay
+            muted
+            loop
+            playsinline
+            poster="/images/portada.jpg"
             class="absolute inset-0 w-full h-full object-cover z-0"
         >
             <source src="/videos/faro.mp4" type="video/mp4">
@@ -29,7 +27,7 @@ import heroImage from '../assets/portada.jpg'
         
         <div class="absolute inset-0 bg-gray-900 opacity-60 z-10"></div>
         
-        <div class="absolute inset-0 z-15" style="
+        <div class="absolute inset-0 z-[15]" style="
             background: linear-gradient(
                 to right, 
                 rgb(17, 24, 39) 0%, 
