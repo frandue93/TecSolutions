@@ -136,7 +136,7 @@ const languages = [
                 </div>
 
                 <aside class="portfolio-panel portfolio-glow rounded-[1.75rem] p-6 sm:p-8">
-                    <div class="mb-6 flex items-center justify-between gap-4">
+                    <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                         <div>
                             <p class="text-sm uppercase tracking-[0.3em] text-slate-400">Resumen</p>
                             <h2 class="mt-2 text-2xl font-semibold text-white">Disponible para nuevas oportunidades</h2>
@@ -145,7 +145,7 @@ const languages = [
                         <img
                             src={candidatePhoto}
                             alt={`Foto de perfil de ${candidateName}`}
-                            class="h-64 w-64 rounded-2xl border border-white/20 object-cover shadow-lg shadow-slate-950/40"
+                            class="h-56 w-full max-w-[14rem] self-center rounded-2xl border border-white/20 object-contain object-center shadow-lg shadow-slate-950/40 sm:h-64 sm:w-64 sm:max-w-none sm:self-auto sm:object-cover"
                             loading="eager"
                         />
                     </div>
