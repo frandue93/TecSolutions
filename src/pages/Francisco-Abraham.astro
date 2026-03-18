@@ -1,4 +1,4 @@
----
+﻿---
 import PortfolioLayout from '../layouts/PortfolioLayout.astro';
 
 const profileSummary = `Soy un perfil técnico con base industrial, especializado en automatización de procesos y programación interna para empresas. Mi foco está en diseñar soluciones que conecten maquinaria, sistemas y bases de datos para transformar datos operativos en información útil para la toma de decisiones. Aplicada a la optimización de procesos, trazabilidad, control y mejora de productividad. Me desenvuelvo bien en entornos exigentes, coordinando con distintos departamentos y priorizando siempre resultados medibles. Busco un proyecto donde aportar valor desde el primer día, asumir responsabilidad y seguir evolucionando en automatización industrial y sistemas internos.`;
@@ -7,6 +7,7 @@ const candidateName = 'Francisco Abraham Dueñas Alfaro';
 const candidateHeadline = 'Programador Informático y Electromecánico Industrial';
 const candidatePhone = '652 531 981';
 const candidateEmail = 'fran_due@hotmail.es';
+const candidatePhoto = '/images/foto_perfil_ed.png';
 
 const experience = [
     {
@@ -141,7 +142,12 @@ const languages = [
                             <h2 class="mt-2 text-2xl font-semibold text-white">Disponible para nuevas oportunidades</h2>
                             <p class="mt-2 text-sm text-slate-300">{candidateName}</p>
                         </div>
-                        <div class="h-14 w-14 rounded-2xl bg-gradient-to-br from-teal-300 to-orange-400"></div>
+                        <img
+                            src={candidatePhoto}
+                            alt={`Foto de perfil de ${candidateName}`}
+                            class="h-64 w-64 rounded-2xl border border-white/20 object-cover shadow-lg shadow-slate-950/40"
+                            loading="eager"
+                        />
                     </div>
 
                     <div class="grid gap-4 sm:grid-cols-2">
@@ -293,8 +299,7 @@ const languages = [
                     </div>
                     <div class="rounded-[1.5rem] border border-white/10 bg-slate-950/40 p-6">
                         <p class="text-base leading-8 text-slate-200">
-                            Interesado en posiciones donde pueda participar en desarrollo web, automatización, mejora de procesos o proyectos con IA aplicada, aportando una visión práctica y orientada a resultados.
-                        </p>
+                            Interesado en posiciones donde pueda participar en consultoría, automatización, mejora de procesos o proyectos con IA aplicada, aportando una visión práctica y orientada a resultados, así como al mantenimiento electromecánico.                        </p>
                     </div>
                 </div>
             </div>
