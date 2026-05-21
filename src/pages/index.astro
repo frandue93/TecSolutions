@@ -9,7 +9,7 @@ import { services } from '../data/services';
 
 ---
 
-<BaseLayout title="Alfarotec | Consultoría Tecnológica para Empresas" description="Alfarotec ofrece servicios de consultoría tecnológica para empresas: desarrollo de software, IA, automatización, optimización y ciberseguridad.">
+<BaseLayout title="Alfarotec | Consultoría Tecnológica Unipersonal" description="Alfarotec es una consultoría tecnológica unipersonal que ayuda a empresas a resolver problemas con software, IA, electromecánica e impresión 3D.">
 
     <section class="relative min-h-[60vh] md:min-h-[70vh] py-10 md:py-0 flex items-center justify-center text-center overflow-hidden">
         
@@ -46,20 +46,30 @@ import { services } from '../data/services';
         
         
         <div class="relative z-20 text-white p-6 max-w-4xl mx-auto">
-            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-shadow-lg" style="text-shadow: 0 0 10px rgba(59, 130, 246, 0.8), 0 0 10px rgba(59, 130, 246, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.9);">
-                 Soluciones tecnológicas para empresas
+            <div class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium backdrop-blur-md mb-6">
+                <span class="h-2.5 w-2.5 rounded-full bg-cyan-400 shadow-[0_0_18px_rgba(34,211,238,0.9)]"></span>
+                Consultoría tecnológica empresarial
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-shadow-lg max-w-3xl mx-auto" style="text-shadow: 0 0 10px rgba(59, 130, 246, 0.8), 0 0 10px rgba(59, 130, 246, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.9);">
+                 Resolvemos problemas.
             </h1>
-            <p class="text-lg md:text-xl mb-8" style="text-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 1px 1px 3px rgba(0, 0, 0, 0.8);">
-                En Alfarotec diseñamos soluciones a medida en desarrollo, IA, automatización y optimización para acelerar la transformación digital de tu empresa.
+            <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto" style="text-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 1px 1px 3px rgba(0, 0, 0, 0.8);">
+                Ayudamos a empresas a crear soluciones reales en proyectos tanto tangibles como digitales.
             </p>
-            <div class="relative inline-block mt-8 md:mt-16">
+            <div class="flex flex-wrap justify-center gap-3 mb-8 text-sm md:text-base">
+                <span class="rounded-full border border-white/15 bg-black/20 px-4 py-2 backdrop-blur-sm">Software a medida</span>
+                <span class="rounded-full border border-white/15 bg-black/20 px-4 py-2 backdrop-blur-sm">IA aplicada</span>
+                <span class="rounded-full border border-white/15 bg-black/20 px-4 py-2 backdrop-blur-sm">Electromecánica</span>
+                <span class="rounded-full border border-white/15 bg-black/20 px-4 py-2 backdrop-blur-sm">Impresión 3D</span>
+            </div>
+            <div class="relative inline-block mt-4 md:mt-10">
                 <div class="absolute -inset-1 rounded-full opacity-75 blur-sm animate-pulse border-pulse-gradient"></div>
                 <div class="absolute -inset-1 rounded-full border-conic-rotate"></div>
                 
                 <a href="/contacto" class="relative inline-block px-8 py-4 text-xl font-semibold 
 bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 hover:from-blue-700 hover:via-blue-600 hover:to-indigo-700 rounded-full shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 transform hover:-translate-y-1 hover:scale-105 text-white backdrop-blur-sm overflow-hidden group border-2 border-transparent">
                     <span class="relative z-10 flex items-center justify-center space-x-2">
-                        <span>Agenda tu Consulta Gratuita</span>
+                        <span>Cuéntame tu problema</span>
                         <svg class="w-5 h-5 
 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -83,10 +93,6 @@ transform group-hover:translate-x-1 transition-transform duration-300" fill="non
             background: radial-gradient(circle at center, rgba(37, 99, 235, 0.4) 0%, transparent 70%); 
             z-index: 10; 
         "></div>
-
-        <h2 class="text-3xl font-extrabold text-center text-gray-100 mb-12 relative z-20">
-            Nuestros Servicios Clave
-        </h2>
 
         <!-- Servicio Destacado Alternativo -->
         <FeaturedServiceAlt 
@@ -128,6 +134,37 @@ transform group-hover:translate-x-1 transition-transform duration-300" fill="non
         <!-- Sección de Tecnologías -->
     <section class="relative mt-5 py-16 px-6 bg-gray-900">
         <TechCircle />
+    </section>
+
+    <section class="relative mx-auto mt-8 max-w-6xl px-6 pb-16">
+        <div class="grid gap-8 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/30 backdrop-blur md:grid-cols-[0.85fr_1.15fr] md:items-center md:p-8">
+            <div class="flex justify-center md:justify-start">
+                <img
+                    src="/images/foto_perfil_ed.png"
+                    alt="Foto de Francisco Abraham Dueñas Alfaro"
+                    class="h-190 w-full max-w-sm rounded-3xl object-cover object-center shadow-xl shadow-black/40 md:h-180"
+                    loading="lazy"
+                />
+            </div>
+
+            <div class="space-y-5 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 rounded-full border border-teal-400/20 bg-teal-400/10 px-4 py-2 text-sm font-medium text-teal-200">
+                    Quien soy y cómo te ayudo
+                </div>
+                <h2 class="text-3xl font-extrabold text-white md:text-4xl">
+                    Soy Francisco Abraham, un perfil técnico que une programación, IA y electromecánica para resolver problemas reales.
+                </h2>
+                <p class="max-w-3xl text-base leading-8 text-gray-300 md:text-lg">
+                    Con experiencia en desarrollo web, automatización y entorno industrial, puedo ayudarte a convertir procesos manuales en soluciones más eficientes, crear herramientas a medida, mejorar sistemas internos y fabricar piezas o carcasas funcionales con impresión 3D cuando el proyecto lo necesite.
+                </p>
+                <div class="flex flex-wrap justify-center gap-3 md:justify-start">
+                    <span class="rounded-full border border-white/10 bg-black/20 px-4 py-2 text-sm text-gray-200">Software</span>
+                    <span class="rounded-full border border-white/10 bg-black/20 px-4 py-2 text-sm text-gray-200">IA aplicada</span>
+                    <span class="rounded-full border border-white/10 bg-black/20 px-4 py-2 text-sm text-gray-200">Electromecánica</span>
+                    <span class="rounded-full border border-white/10 bg-black/20 px-4 py-2 text-sm text-gray-200">Impresión 3D</span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <script>
